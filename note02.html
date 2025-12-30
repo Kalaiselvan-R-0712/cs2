@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stackly — Cyber Security Agency | Home 2</title>
+    <meta name="description" content="Stackly — Cyber Security Agency" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --gold: #d4af37; --accent: #d4a657; }
+
+        /* 🔥 HEADER - BULLETPROOF VISIBLE FOREVER */
+        #site-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 999999 !important;
+            background: rgba(11,10,18, 0.98) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+            border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0a12;
+            overflow-x: hidden;
+            padding-top: 90px !important;
+        }
+
+        /* 🔥 HERO VIDEO STYLES */
+        .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        .hero-content-bg { background: rgba(0, 0, 0, 0.5); position: relative; z-index: 10; }
+
+        /* 🔥 PERFECT DROPDOWN - REDIRECTION 100% FIXED */
+        .home-dropdown { position: relative; }
+        .home-dropdown-content {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            min-width: 180px; background: rgba(11,10,18, 0.98);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            opacity: 0; visibility: hidden;
+            transform: translateX(-50%) translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 10000 !important; margin-top: 8px;
+        }
+        .home-dropdown.active .home-dropdown-content {
+            opacity: 1 !important; visibility: visible !important;
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .home-dropdown-content a {
+            display: block !important; padding: 12px 20px !important; color: white !important;
+            text-decoration: none !important; font-weight: 500 !important; border-radius: 12px !important;
+            transition: all 0.2s ease !important; pointer-events: auto !important;
+        }
+        .home-dropdown-content a:hover { background: rgba(6, 182, 212, 0.2) !important; color: #06b6d4 !important; transform: translateX(4px) !important; }
+
+        /* 🔥 MOBILE MENU */
+        @media (max-width: 1024px) {
+            #mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0b0a12 !important; z-index: 9999; border-top: 1px solid rgba(255,255,255,0.1); max-height: 85vh; overflow-y: auto; }
+            #mobile-menu.active { display: block !important; }
+            #mobile-menu a, #mobile-menu button { display: block !important; width: 100% !important; max-width: 300px; margin: 10px auto !important; text-align: center; padding: 12px !important; border-radius: 12px !important; color: white !important; font-size: 1rem !important; }
+            .home-dropdown-mobile { width: 100%; max-width: 300px; }
+            .mobile-home-dropdown-content { opacity: 0; visibility: hidden; max-height: 0; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); margin-top: 8px; background: rgba(11,10,18, 0.98); border-radius: 12px; }
+            .home-dropdown-mobile.active .mobile-home-dropdown-content { opacity: 1 !important; visibility: visible !important; max-height: 120px; }
+            .mobile-home-dropdown-content a { display: block !important; padding: 12px 20px !important; margin-left: 16px !important; color: white !important; border-left: 4px solid #06b6d4; background: rgba(255,255,255,0.05); }
+            .mobile-reg-btn { background: linear-gradient(45deg, #06b6d4, #3b82f6) !important; font-weight: 800 !important; }
+        }
+
+        /* 🔥 ANIMATIONS */
+        .fade-in-up { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
+        .fade-in-up.animate { opacity: 1; transform: translateY(0); }
+        .fade-in-left { opacity: 0; transform: translateX(-60px); transition: all 1s ease; }
+        .fade-in-left.animate { opacity: 1; transform: translateX(0); }
+        .fade-in-right { opacity: 0; transform: translateX(60px); transition: all 1s ease; }
+        .fade-in-right.animate { opacity: 1; transform: translateX(0); }
+        .section-stagger { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .section-stagger.animate { opacity: 1; transform: translateY(0); }
+        
+        .hero-glow { animation: heroGlow 3s ease-in-out infinite alternate; background: linear-gradient(45deg, #06b6d4, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes heroGlow { 0% { text-shadow: 0 0 20px rgba(6,182,212,0.4); } 100% { text-shadow: 0 0 40px rgba(6,182,212,0.7); } }
+
+        .btn-mega { background: linear-gradient(45deg, #06b6d4, #0891b2, #0ea5e9); background-size: 300% 300%; animation: gradientShift 4s ease infinite; transition: all 0.3s; }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .btn-mega:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(6,182,212,0.4); }
+
+        .card { background: linear-gradient(145deg, #0b0a12, #1a1822); border: 1px solid rgba(255,255,255,0.1); transition: all 0.5s ease; }
+        .card:hover { transform: translateY(-15px); border-color: #06b6d4; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); }
+        .sicon { width: 44px; height: 44px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 12px; transition: 0.3s; }
+        .sicon:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+        .logo-no-rotate:hover { transform: scale(1.05); transition: 0.3s; }
+    </style>
+</head>
+
+<body>
+    <header id="site-header" class="text-white">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="index.html" class="flex items-center fade-in-left">
+                <img src="assets/images/logo/stackly_logo.webp" class="h-12 logo-no-rotate" alt="Stackly">
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-6 font-medium fade-in-right">
+                <div class="home-dropdown relative" id="homeDropdown">
+                    <button class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all cursor-pointer font-medium border-none bg-transparent text-white" onclick="toggleHomeDropdown(event)">
+                        Home
+                    </button>
+                    <div class="home-dropdown-content">
+                        <a href="index.html">⚡ Home 1</a>
+                    </div>
+                </div>
+                <a href="about2.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">About</a>
+                <a href="services2.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">Services</a>
+                <a href="packages2.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">Packages</a>
+                <a href="dashboard.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">Dashboard</a>
+                <a href="login.html" class="px-6 py-3 border border-white/30 rounded-full glass">Login</a>
+                <a href="register.html" class="px-8 py-3 rounded-2xl font-bold text-black btn-mega shadow-2xl">Register Now</a>
+            </nav>
+
+            <button id="mobile-toggle" class="lg:hidden text-3xl">☰</button>
+        </div>
+
+        <div id="mobile-menu" class="lg:hidden text-white px-6 py-12">
+            <div class="flex flex-col items-center py-10 px-6">
+                <div class="home-dropdown-mobile mb-6" id="mobileHomeDropdown">
+                    <a href="#" class="block hover:text-cyan-400 text-lg font-medium py-3 px-4 rounded-xl bg-white/5 flex items-center justify-center w-full max-w-[280px]" onclick="toggleMobileHomeDropdown(event)">
+                        🏠 Home
+                        <svg class="w-5 h-5 ml-2 transition-transform duration-300" id="mobileHomeArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="mobile-home-dropdown-content">
+                        <a href="index.html">⚡ Home 1</a>
+                    </div>
+                </div>
+                <a href="about2.html" class="w-full max-w-[280px] py-3 bg-white/5 rounded-xl text-center">👥 About</a>
+                <a href="services2.html" class="w-full max-w-[280px] py-3 bg-white/5 rounded-xl text-center">🛠 Services</a>
+                <a href="dashboard.html" class="w-full max-w-[280px] py-3 bg-white/5 rounded-xl text-center mb-6">📊 Dashboard</a>
+                <div class="w-full max-w-[260px] h-px bg-white/10 my-6"></div>
+                <a href="login.html" class="w-full max-w-[280px] py-3 glass rounded-xl text-center mb-4">🔐 Login</a>
+                <a href="register.html" class="mobile-reg-btn w-full max-w-[280px] py-4 rounded-xl text-center">🚀 Register Now</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen overflow-hidden flex items-center">
+        <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+            <source src="assets/videos/bg_video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content-bg w-full min-h-screen flex items-center">
+            <div class="max-w-7xl mx-auto px-8 w-full">
+                <div class="max-w-3xl fade-in-up animate">
+                    <span class="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-2xl text-lg font-bold mb-8 shadow-2xl text-white">🔐 VIDEO POWERED PROTECTION</span>
+                    <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight hero-glow text-white">FUTURE-PROOF<br><span>CYBER</span> DEFENSE</h1>
+                    <p class="text-xl text-white/90 mb-12 max-w-2xl leading-relaxed">AI-powered security • Real-time threat hunting • 24/7 Enterprise SOC monitoring.</p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="contact2.html" class="px-10 py-5 btn-mega rounded-2xl text-xl font-bold text-black text-center">Secure Now →</a>
+                        <a href="contact2.html" class="px-10 py-5 glass rounded-2xl text-xl font-bold text-white text-center">Free Security Audit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+            <div class="section-stagger animate">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="rounded-3xl shadow-2xl h-[450px] w-full object-cover border-4 border-gray-100" />
+            </div>
+            <div>
+                <span class="inline-block px-6 py-2 bg-cyan-100 text-cyan-600 rounded-full font-bold mb-6">🛡️ ABOUT STACKLY</span>
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight">We Secure Your <br><span class="text-cyan-500">Digital Future</span></h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">Enterprise-grade protection powered by cutting-edge AI and zero-trust architecture. We've protected over 500+ enterprises globally.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-6 bg-gray-50 border border-gray-200 rounded-2xl">
+                        <div class="text-3xl mb-2">⚡</div>
+                        <h4 class="font-bold text-gray-900">Zero Latency</h4>
+                    </div>
+                    <div class="p-6 bg-gray-50 border border-gray-200 rounded-2xl">
+                        <div class="text-3xl mb-2">🎯</div>
+                        <h4 class="font-bold text-gray-900">100% Accuracy</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#0b0a12] text-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black hero-glow mb-4">ENTERPRISE SECURITY</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">🔒</div>
+                    <h3 class="text-xl font-bold mb-4">Pen-Testing</h3>
+                    <p class="text-gray-400">Advanced vulnerability assessment.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">📊</div>
+                    <h3 class="text-xl font-bold mb-4">SOC 24/7</h3>
+                    <p class="text-gray-400">Continuous threat detection.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">☁️</div>
+                    <h3 class="text-xl font-bold mb-4">Cloud Security</h3>
+                    <p class="text-gray-400">Multi-cloud protection.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">🚨</div>
+                    <h3 class="text-xl font-bold mb-4">Incident Response</h3>
+                    <p class="text-gray-400">Rapid breach containment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#060507] text-gray-300 pt-10 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="logo-box mb-3">
+                    <img src="assets/images/logo/stackly_logo.webp" alt="Stackly" class="h-10" />
+                </div>
+                <p class="text-sm text-gray-400">Stackly is an agency of next generation end to end Cyber Security Solutions.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-2">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><a href="index.html" class="hover:text-cyan-400">Home</a></li>
+                    <li><a href="about2.html" class="hover:text-cyan-400">About</a></li>
+                    <li><a href="services2.html" class="hover:text-cyan-400">Services</a></li>
+                    <li><a href="packages2.html" class="hover:text-cyan-400">Packages</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-2">Address</h4>
+                <p class="text-sm text-gray-400">📍 Chennai, Tamil Nadu, India</p>
+                <p class="text-sm text-gray-400 mt-1">📞 +91 98765 43210</p>
+                <p class="text-sm text-gray-400 mt-1">✉️ hello@stackly.com</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-2">Follow us</h4>
+                <div class="flex items-center gap-3">
+                    <a href="#" class="sicon" title="LinkedIn">
+                        <svg class="w-5 h-5" fill="#0077B5" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.84 6 2.5 6S0 4.88 0 3.5 1.14 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8H4.5v14H.5V8zM7.5 8h4v2h.1c.5-1 2-2 4-2 4.4 0 5.2 2.9 5.2 6.7V22H17v-6.8c0-1.7 0-3.9-2.5-3.9-2.5 0-2.8 1.9-2.8 3.8V22H7.5V8z"/></svg>
+                    </a>
+                    <a href="#" class="sicon" title="Twitter">
+                        <svg class="w-5 h-5" fill="#1DA1F2" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14.85 4.48 4.48 0 0 0 1.94-2.48 9.12 9.12 0 0 1-2.89 1.1 4.52 4.52 0 0 0-7.7 4.12A12.79 12.79 0 0 1 1.67 2.15 4.52 4.52 0 0 0 3.13 9a4.49 4.49 0 0 1-2.04-.55v.06a4.52 4.52 0 0 0 3.63 4.41 4.51 4.51 0 0 1-2.03.07 4.53 4.53 0 0 0 4.22 3.13A9.07 9.07 0 0 1 1.11 18.1 12.82 12.82 0 0 0 7 20c8.3 0 12.85-6.87 12.85-12.84 0-.2 0-.42-.01-.63A9.18 9.18 0 0 0 23 3z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xs text-gray-500 mt-8 border-t border-white/10 pt-6">© 2025 Stackly. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // 🔥 MOBILE TOGGLE
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileToggle.onclick = function() {
+            mobileMenu.classList.toggle('active');
+            this.innerText = mobileMenu.classList.contains('active') ? '✕' : '☰';
+        };
+
+        // 🔥 DESKTOP HOME DROPDOWN
+        function toggleHomeDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById('homeDropdown').classList.toggle('active');
+        }
+
+        // 🔥 MOBILE HOME DROPDOWN
+        function toggleMobileHomeDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const dropdown = document.getElementById('mobileHomeDropdown');
+            dropdown.classList.toggle('active');
+            const arrow = document.getElementById('mobileHomeArrow');
+            arrow.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // 🔥 CLOSE ON OUTSIDE CLICK
+        window.onclick = function(event) {
+            if (!event.target.matches('#mobile-toggle') && !event.target.closest('#mobile-menu')) {
+                mobileMenu.classList.remove('active');
+                mobileToggle.innerText = '☰';
+                document.getElementById('mobileHomeDropdown').classList.remove('active');
+            }
+            if (!event.target.closest('#homeDropdown')) {
+                document.getElementById('homeDropdown').classList.remove('active');
+            }
+        };
+
+        // 🔥 SCROLL ANIMATIONS
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('animate');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .section-stagger').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
