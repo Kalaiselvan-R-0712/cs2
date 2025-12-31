@@ -1,218 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Stackly — Cyber Security Agency</title>
-<meta name="description" content="Stackly — Cyber Security Agency" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stackly — Cyber Security Agency | Home 1</title>
+    <meta name="description" content="Stackly — Cyber Security Agency" />
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --gold:#d4af37;
-  --accent:#d4a657;
-}
+    <style>
+        :root { --gold: #d4af37; --accent: #d4a657; }
 
-/* 🔥 HEADER - BULLETPROOF VISIBLE FOREVER */
-#site-header {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 999999 !important;
-  background: rgba(11,10,18, 0.98) !important;
-  backdrop-filter: blur(25px) !important;
-  -webkit-backdrop-filter: blur(25px) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.2) !important;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
-}
+        /* 🔥 HEADER - BULLETPROOF VISIBLE FOREVER */
+        #site-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 999999 !important;
+            background: rgba(11,10,18, 0.98) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+            border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
+        }
 
-body {
-  font-family:'Inter',sans-serif;
-  background: linear-gradient(135deg, #f8f6f2 0%, #e8e5dc 50%, #f0ede5 100%);
-  overflow-x: hidden;
-  padding-top: 90px !important;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0a12;
+            overflow-x: hidden;
+            padding-top: 90px !important;
+        }
 
-/* 🔥 PERFECT DROPDOWN - REDIRECTION 100% FIXED */
-.home-dropdown {
-  position: relative;
-}
-.home-dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 180px;
-  background: rgba(11,10,18, 0.98);
-  backdrop-blur-xl;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(-50%) translateY(-10px) scale(0.95);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  z-index: 10000 !important;
-  margin-top: 8px;
-}
-.home-dropdown.active .home-dropdown-content {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateX(-50%) translateY(0) scale(1) !important;
-}
-.home-dropdown-content a {
-  display: block !important;
-  padding: 12px 20px !important;
-  color: white !important;
-  text-decoration: none !important;
-  font-weight: 500 !important;
-  border-radius: 12px !important;
-  transition: all 0.2s ease !important;
-  pointer-events: auto !important;
-}
-.home-dropdown-content a:hover {
-  background: rgba(6, 182, 212, 0.2) !important;
-  color: #06b6d4 !important;
-  transform: translateX(4px) !important;
-}
+        /* 🔥 HERO VIDEO STYLES */
+        .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        .hero-content-bg { background: rgba(0, 0, 0, 0.5); position: relative; z-index: 10; }
 
-/* 🔥 MOBILE MENU - UPDATED WITH HOME DROPDOWN */
-@media (max-width: 1024px) {
-  #mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #0b0a12 !important;
-    z-index: 9999;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    max-height: 85vh;
-    overflow-y: auto;
-  }
-  #mobile-menu.active {
-    display: block !important;
-  }
-  #mobile-menu a, #mobile-menu button {
-    display: block !important;
-    width: 100% !important;
-    max-width: 300px;
-    margin: 10px auto !important;
-    text-align: center;
-    padding: 12px !important;
-    border-radius: 12px !important;
-    color: white !important;
-    font-size: 1rem !important;
-  }
-  /* 🔥 MOBILE HOME DROPDOWN */
-  .home-dropdown-mobile {
-    width: 100%;
-    max-width: 300px;
-  }
-  .mobile-home-dropdown-content {
-    opacity: 0;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    margin-top: 8px;
-    background: rgba(11,10,18, 0.98);
-    backdrop-blur-xl;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  }
-  .home-dropdown-mobile.active .mobile-home-dropdown-content {
-    opacity: 1 !important;
-    visibility: visible !important;
-    max-height: 120px;
-  }
-  .home-dropdown-mobile.active #mobileHomeArrow {
-    transform: rotate(180deg);
-  }
-  .mobile-home-dropdown-content a {
-    display: block !important;
-    padding: 12px 20px !important;
-    margin-left: 16px !important;
-    color: white !important;
-    text-decoration: none !important;
-    font-weight: 500 !important;
-    border-radius: 12px !important;
-    border-left: 4px solid #06b6d4;
-    background: rgba(255,255,255,0.05);
-    transition: all 0.2s ease !important;
-  }
-  .mobile-home-dropdown-content a:hover {
-    background: rgba(6, 182, 212, 0.2) !important;
-    color: #06b6d4 !important;
-  }
-  /* Fixed Register Button Appearance */
-  .mobile-reg-btn {
-    background: linear-gradient(45deg, #06b6d4, #3b82f6) !important;
-    font-weight: 800 !important;
-    box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3) !important;
-  }
-}
+        /* 🔥 PERFECT DROPDOWN - REDIRECTION 100% FIXED */
+        .home-dropdown { position: relative; }
+        .home-dropdown-content {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            min-width: 180px; background: rgba(11,10,18, 0.98);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            opacity: 0; visibility: hidden;
+            transform: translateX(-50%) translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 10000 !important; margin-top: 8px;
+        }
+        .home-dropdown.active .home-dropdown-content {
+            opacity: 1 !important; visibility: visible !important;
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .home-dropdown-content a {
+            display: block !important; padding: 12px 20px !important; color: white !important;
+            text-decoration: none !important; font-weight: 500 !important; border-radius: 12px !important;
+            transition: all 0.2s ease !important; pointer-events: auto !important;
+        }
+        .home-dropdown-content a:hover { background: rgba(6, 182, 212, 0.2) !important; color: #06b6d4 !important; transform: translateX(4px) !important; }
 
-/* 🔥 ALL ANIMATIONS */
-.fade-in-up { opacity: 0; transform: translateY(40px) scale(0.98); transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.fade-in-up.animate { opacity: 1; transform: translateY(0) scale(1); }
-.fade-in-left { opacity: 0; transform: translateX(-60px) scale(0.98); transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.fade-in-left.animate { opacity: 1; transform: translateX(0) scale(1); }
-.fade-in-right { opacity: 0; transform: translateX(60px) scale(0.98); transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.fade-in-right.animate { opacity: 1; transform: translateX(0) scale(1); }
-.section-stagger { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.section-stagger.animate { opacity: 1; transform: translateY(0); }
+        /* 🔥 MOBILE MENU */
+        @media (max-width: 1024px) {
+            #mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0b0a12 !important; z-index: 9999; border-top: 1px solid rgba(255,255,255,0.1); max-height: 85vh; overflow-y: auto; }
+            #mobile-menu.active { display: block !important; }
+            #mobile-menu a, #mobile-menu button { display: block !important; width: 100% !important; max-width: 300px; margin: 10px auto !important; text-align: center; padding: 12px !important; border-radius: 12px !important; color: white !important; font-size: 1rem !important; }
+            .home-dropdown-mobile { width: 100%; max-width: 300px; }
+            .mobile-home-dropdown-content { opacity: 0; visibility: hidden; max-height: 0; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); margin-top: 8px; background: rgba(11,10,18, 0.98); border-radius: 12px; }
+            .home-dropdown-mobile.active .mobile-home-dropdown-content { opacity: 1 !important; visibility: visible !important; max-height: 120px; }
+            .mobile-home-dropdown-content a { display: block !important; padding: 12px 20px !important; margin-left: 16px !important; color: white !important; border-left: 4px solid #06b6d4; background: rgba(255,255,255,0.05); }
+            .mobile-reg-btn { background: linear-gradient(45deg, #06b6d4, #3b82f6) !important; font-weight: 800 !important; }
+        }
 
-.about-float { animation: aboutFloat 6s ease-in-out infinite; }
-@keyframes aboutFloat { 0%, 100% { transform: translateY(0px) rotate(0deg); } 33% { transform: translateY(-10px) rotate(1deg); } 66% { transform: translateY(-5px) rotate(-1deg); } }
+        /* 🔥 ANIMATIONS */
+        .fade-in-up { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
+        .fade-in-up.animate { opacity: 1; transform: translateY(0); }
+        .fade-in-left { opacity: 0; transform: translateX(-60px); transition: all 1s ease; }
+        .fade-in-left.animate { opacity: 1; transform: translateX(0); }
+        .fade-in-right { opacity: 0; transform: translateX(60px); transition: all 1s ease; }
+        .fade-in-right.animate { opacity: 1; transform: translateX(0); }
+        .section-stagger { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .section-stagger.animate { opacity: 1; transform: translateY(0); }
+        
+        .hero-glow { animation: heroGlow 3s ease-in-out infinite alternate; background: linear-gradient(45deg, #06b6d4, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes heroGlow { 0% { text-shadow: 0 0 20px rgba(6,182,212,0.4); } 100% { text-shadow: 0 0 40px rgba(6,182,212,0.7); } }
 
-.about-glow { position: relative; }
-.about-glow::before { content: ''; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; background: linear-gradient(45deg, rgba(6, 182, 212, 0.2), rgba(212, 175, 55, 0.2)); border-radius: 20px; z-index: -1; opacity: 0; transition: opacity 0.6s; animation: glowPulse 4s ease-in-out infinite alternate; }
-@keyframes glowPulse { 0% { opacity: 0.3; transform: scale(1); } 100% { opacity: 0.6; transform: scale(1.05); } }
-.about-glow:hover::before { opacity: 0.8; }
+        .btn-mega { background: linear-gradient(45deg, #06b6d4, #0891b2, #0ea5e9); background-size: 300% 300%; animation: gradientShift 4s ease infinite; transition: all 0.3s; }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .btn-mega:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(6,182,212,0.4); }
 
-.services-orbit { position: relative; }
-.services-orbit::before { content: ''; position: absolute; top: -20px; left: 50%; width: 60px; height: 60px; background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%); border-radius: 50%; transform: translateX(-50%); animation: orbitFloat 5s ease-in-out infinite; }
-@keyframes orbitFloat { 0%, 100% { transform: translateX(-50%) translateY(0px); } 50% { transform: translateX(-50%) translateY(-15px); } }
-
-.card-icon-float { animation: iconFloat 4s ease-in-out infinite; }
-@keyframes iconFloat { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-8px) rotate(5deg); } }
-
-.card { background: linear-gradient(145deg, #0b0a12, #1a1822); position: relative; overflow: hidden; transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1); }
-.card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), rgba(212, 175, 55, 0.2), transparent); transition: left 1s; }
-.card:hover::before { left: 100%; }
-.card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%); opacity: 0; transition: opacity 0.5s; }
-.card:hover::after { opacity: 1; }
-.card:hover { transform: translateY(-20px) scale(1.02); box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(6, 182, 212, 0.3), 0 0 80px rgba(212, 175, 55, 0.2); }
-
-.hero-glow { animation: heroGlow 3s ease-in-out infinite alternate; background: linear-gradient(45deg, #06b6d4, #0891b2, #06b6d4); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-@keyframes heroGlow { 0% { text-shadow: 0 0 20px rgba(6,182,212,0.6), 0 0 40px rgba(6,182,212,0.3); transform: translateY(0); } 100% { text-shadow: 0 0 40px rgba(6,182,212,0.8), 0 0 80px rgba(6,182,212,0.4); transform: translateY(-5px); } }
-
-@keyframes badgeFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
-.hero-badge { animation: badgeFloat 4s ease-in-out infinite; }
-
-.btn-mega { position: relative; overflow: hidden; background: linear-gradient(45deg, #06b6d4, #0891b2, #0ea5e9); background-size: 300% 300%; animation: gradientShift 4s ease infinite; }
-@keyframes gradientShift { 0%,100%{background-position:0% 50%}50%{background-position:100% 50%} }
-.btn-mega::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: left 0.6s; }
-.btn-mega:hover::before { left: 100%; }
-.btn-mega:hover { transform: translateY(-6px) scale(1.05); box-shadow: 0 20px 40px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.3); }
-
-.glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); }
-.img-3d { transition: all 0.8s cubic-bezier(0.23,1,0.320,1); }
-.img-3d:hover { transform: scale(1.05); box-shadow: 0 30px 60px rgba(0,0,0,0.3), 0 0 40px rgba(6,182,212,0.2); }
-.logo-no-rotate { transition: all 0.3s ease !important; }
-.logo-no-rotate:hover { transform: scale(1.05) !important; }
-.logo-img-rect { transition: all 0.3s ease !important; }
-.logo-img-rect:hover { transform: scale(1.05) !important; }
-.sicon { transition: all 0.4s ease; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.1); }
-.sicon:hover { transform: scale(1.2) translateY(-3px); background: rgba(255,255,255,0.2); }
-</style>
+        .card { background: linear-gradient(145deg, #0b0a12, #1a1822); border: 1px solid rgba(255,255,255,0.1); transition: all 0.5s ease; }
+        .card:hover { transform: translateY(-15px); border-color: #06b6d4; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); }
+        .sicon { width: 44px; height: 44px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 12px; transition: 0.3s; }
+        .sicon:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+        .logo-no-rotate:hover { transform: scale(1.05); transition: 0.3s; }
+    </style>
 </head>
 
 <body>
@@ -279,124 +163,78 @@ body {
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="min-h-screen bg-cover bg-center text-white flex items-center relative overflow-hidden" 
-style="background-image: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(11,10,18,0.75)), url('https://images.unsplash.com/photo-1510511459019-5dda7724fd87');">
-  <div class="w-full backdrop-blur-xl bg-black/30 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-8 py-32 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-      <div class="fade-in-up animate">
-        <span class="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 rounded-2xl text-lg font-bold mb-6 hero-badge shadow-2xl">🔐 Secure & Guaranteed Protection</span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 hero-glow leading-tight">
-          NEXT-GEN <br><span>CYBER</span><br>SECURITY
-        </h1>
-        <p class="text-lg md:text-xl text-cyan-100/90 mb-8 leading-relaxed fade-in-up animate" style="animation-delay: 0.4s;">AI-powered cyber defense • Real-time threat intelligence • 24/7 SOC monitoring • Enterprise-grade protection</p>
-        <div class="flex flex-col sm:flex-row gap-4 fade-in-up animate" style="animation-delay: 0.6s;">
-          <a href="contact.html" class="px-8 py-4 btn-mega rounded-2xl text-lg font-bold shadow-2xl">🚀 Get Started Now</a>
-          <a href="contact.html" class="px-8 py-4 glass rounded-2xl backdrop-blur-xl border-2 border-white/30 text-lg font-semibold hover:bg-white/20 hover:border-cyan-400 transition-all duration-500">💬 Free Consultation</a>
+    <section class="relative min-h-screen overflow-hidden flex items-center">
+        <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+            <source src="assets/videos/bg_video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content-bg w-full min-h-screen flex items-center">
+            <div class="max-w-7xl mx-auto px-8 w-full">
+                <div class="max-w-3xl fade-in-up animate">
+                    <span class="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-2xl text-lg font-bold mb-8 shadow-2xl text-white">🔐 VIDEO POWERED PROTECTION</span>
+                    <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight hero-glow text-white">FUTURE-PROOF<br><span>CYBER</span> DEFENSE</h1>
+                    <p class="text-xl text-white/90 mb-12 max-w-2xl leading-relaxed">AI-powered security • Real-time threat hunting • 24/7 Enterprise SOC monitoring.</p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="contact.html" class="px-10 py-5 btn-mega rounded-2xl text-xl font-bold text-black text-center">Secure Now →</a>
+                        <a href="contact.html" class="px-10 py-5 glass rounded-2xl text-xl font-bold text-white text-center">Free Security Audit</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="hidden lg:block fade-in-right animate relative" style="animation-delay: 0.2s;">
-        <div class="img-3d w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" alt="Cyber Security">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ================= ABOUT ================= -->
-<section class="py-24 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-cyan-200/30 to-transparent animate-pulse"></div>
-  <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
-    <div class="order-2 md:order-1 section-stagger animate about-float">
-      <div class="img-3d group about-glow">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="rounded-2xl shadow-2xl w-full h-[400px] object-cover border-4 border-white/50 group-hover:shadow-cyan-500/30 transition-all duration-1000" />
-      </div>
-    </div>
-    <div class="order-1 md:order-2">
-      <div class="section-stagger animate" style="transition-delay: 0.2s;">
-        <span class="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-2xl text-lg font-bold mb-6 shadow-2xl hover:scale-105 transition-all services-orbit">🛡️ About Stackly</span>
-      </div>
-      <h2 class="section-stagger animate text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight" style="transition-delay: 0.4s;">
-        We Secure Your <br><span class="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 bg-clip-text text-transparent font-black">Digital Future</span>
-      </h2>
-      <p class="section-stagger animate text-xl text-gray-700 leading-relaxed mb-8" style="transition-delay: 0.6s;">
-        Enterprise-grade protection powered by cutting-edge AI, advanced threat intelligence, and zero-trust architecture.
-      </p>
-      <div class="grid md:grid-cols-2 gap-4 mt-4">
-        <div class="section-stagger animate glass p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-all hover:scale-105" style="transition-delay: 0.8s;">
-          <div class="text-3xl mb-3">⚡</div>
-          <h4 class="font-bold text-xl mb-2 text-gray-900">Lightning Fast</h4>
-          <p class="text-gray-600">Real-time threat detection</p>
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+            <div class="section-stagger animate">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="rounded-3xl shadow-2xl h-[450px] w-full object-cover border-4 border-gray-100" />
+            </div>
+            <div>
+                <span class="inline-block px-6 py-2 bg-cyan-100 text-cyan-600 rounded-full font-bold mb-6">🛡️ ABOUT STACKLY</span>
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight">We Secure Your <br><span class="text-cyan-500">Digital Future</span></h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">Enterprise-grade protection powered by cutting-edge AI and zero-trust architecture. We've protected over 500+ enterprises globally.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-6 bg-gray-50 border border-gray-200 rounded-2xl">
+                        <div class="text-3xl mb-2">⚡</div>
+                        <h4 class="font-bold text-gray-900">Zero Latency</h4>
+                    </div>
+                    <div class="p-6 bg-gray-50 border border-gray-200 rounded-2xl">
+                        <div class="text-3xl mb-2">🎯</div>
+                        <h4 class="font-bold text-gray-900">100% Accuracy</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="section-stagger animate glass p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-all hover:scale-105" style="transition-delay: 1s;">
-          <div class="text-3xl mb-3">🎯</div>
-          <h4 class="font-bold text-xl mb-2 text-gray-900">100% Accurate</h4>
-          <p class="text-gray-600">Zero false positives</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ================= SERVICES ================= -->
-<section class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #0b0a12 0%, #1a1822 100%);">
-  <div class="absolute inset-0">
-    <div class="absolute top-20 left-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-xl animate-pulse" style="animation-delay: 0s;"></div>
-    <div class="absolute bottom-20 right-10 w-48 h-48 bg-blue-500/10 rounded-full blur-xl animate-pulse" style="animation-delay: 2s;"></div>
-  </div>
-  
-  <div class="max-w-7xl mx-auto px-8 relative z-10">
-    <div class="text-center mb-20">
-      <span class="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-2xl text-xl font-bold mb-6 shadow-2xl hover:scale-105 transition-all section-stagger animate services-orbit">🌐 Our Services</span>
-      <h2 class="section-stagger animate text-4xl md:text-5xl font-black bg-gradient-to-r from-white via-cyan-100 to-blue-100 bg-clip-text text-transparent mb-6 hero-glow">ENTERPRISE SECURITY</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 mx-auto rounded-full shadow-lg section-stagger animate" style="animation-delay: 0.3s;"></div>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="card p-8 rounded-2xl text-center section-stagger animate relative overflow-hidden card-icon-float" style="animation-delay: 0.4s;">
-        <div class="relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl hover:rotate-180 transition-all duration-700">
-            <span class="text-2xl">🔒</span>
-          </div>
-          <h3 class="text-2xl font-black text-white mb-4">Penetration Testing</h3>
-          <p class="text-lg text-gray-300 leading-relaxed">Advanced vulnerability assessment before hackers strike.</p>
+    <section class="py-24 bg-[#0b0a12] text-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black hero-glow mb-4">ENTERPRISE SECURITY</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">🔒</div>
+                    <h3 class="text-xl font-bold mb-4">Pen-Testing</h3>
+                    <p class="text-gray-400">Advanced vulnerability assessment.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">📊</div>
+                    <h3 class="text-xl font-bold mb-4">SOC 24/7</h3>
+                    <p class="text-gray-400">Continuous threat detection.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">☁️</div>
+                    <h3 class="text-xl font-bold mb-4">Cloud Security</h3>
+                    <p class="text-gray-400">Multi-cloud protection.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">🚨</div>
+                    <h3 class="text-xl font-bold mb-4">Incident Response</h3>
+                    <p class="text-gray-400">Rapid breach containment.</p>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <div class="card p-8 rounded-2xl text-center section-stagger animate relative overflow-hidden card-icon-float" style="animation-delay: 0.6s;">
-        <div class="relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl hover:rotate-180 transition-all duration-700">
-            <span class="text-2xl">📊</span>
-          </div>
-          <h3 class="text-2xl font-black text-white mb-4">SOC Monitoring</h3>
-          <p class="text-lg text-gray-300 leading-relaxed">24/7 enterprise threat detection & automated response.</p>
-        </div>
-      </div>
-      
-      <div class="card p-8 rounded-2xl text-center section-stagger animate relative overflow-hidden card-icon-float" style="animation-delay: 0.8s;">
-        <div class="relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl hover:rotate-180 transition-all duration-700">
-            <span class="text-2xl">☁️</span>
-          </div>
-          <h3 class="text-2xl font-black text-white mb-4">Cloud Security</h3>
-          <p class="text-lg text-gray-300 leading-relaxed">Multi-cloud protection for AWS, Azure & Google Cloud.</p>
-        </div>
-      </div>
-      
-      <div class="card p-8 rounded-2xl text-center section-stagger animate relative overflow-hidden card-icon-float" style="animation-delay: 1s;">
-        <div class="relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl hover:rotate-180 transition-all duration-700">
-            <span class="text-2xl">🚨</span>
-          </div>
-          <h3 class="text-2xl font-black text-white mb-4">Incident Response</h3>
-          <p class="text-lg text-gray-300 leading-relaxed">Rapid breach containment & forensic investigation.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 <!-- ================= PERFECT FOOTER ✅ ================= -->
 <footer class="bg-[#060507] dark:bg-[#050406] text-gray-300 pt-10 pb-8">
@@ -457,51 +295,52 @@ style="background-image: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(11,10,18
   <div class="max-w-7xl mx-auto px-6 text-center text-xs text-gray-500 mt-8 border-t border-white/10 pt-6">© 2025 Stackly. All rights reserved.</div>
 </footer>
 
-<script>
-// 🔥 MOBILE TOGGLE
-const mobileToggle = document.getElementById('mobile-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-mobileToggle.onclick = function() {
-  mobileMenu.classList.toggle('active');
-  this.innerText = mobileMenu.classList.contains('active') ? '✕' : '☰';
-};
+    <script>
+        // 🔥 MOBILE TOGGLE
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileToggle.onclick = function() {
+            mobileMenu.classList.toggle('active');
+            this.innerText = mobileMenu.classList.contains('active') ? '✕' : '☰';
+        };
 
-// 🔥 DESKTOP HOME DROPDOWN
-function toggleHomeDropdown(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  document.getElementById('homeDropdown').classList.toggle('active');
-}
+        // 🔥 DESKTOP HOME DROPDOWN
+        function toggleHomeDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById('homeDropdown').classList.toggle('active');
+        }
 
-// 🔥 MOBILE HOME DROPDOWN - TOGGLES ON/OFF
-function toggleMobileHomeDropdown(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  const dropdown = document.getElementById('mobileHomeDropdown');
-  dropdown.classList.toggle('active');
-}
+        // 🔥 MOBILE HOME DROPDOWN
+        function toggleMobileHomeDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const dropdown = document.getElementById('mobileHomeDropdown');
+            dropdown.classList.toggle('active');
+            const arrow = document.getElementById('mobileHomeArrow');
+            arrow.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
 
-// 🔥 CLOSE ON OUTSIDE CLICK
-window.onclick = function(event) {
-  if (!event.target.matches('#mobile-toggle') && !event.target.closest('#mobile-menu')) {
-    mobileMenu.classList.remove('active');
-    mobileToggle.innerText = '☰';
-    document.getElementById('mobileHomeDropdown').classList.remove('active');
-  }
-  if (!event.target.closest('#homeDropdown')) {
-    document.getElementById('homeDropdown').classList.remove('active');
-  }
-};
+        // 🔥 CLOSE ON OUTSIDE CLICK
+        window.onclick = function(event) {
+            if (!event.target.matches('#mobile-toggle') && !event.target.closest('#mobile-menu')) {
+                mobileMenu.classList.remove('active');
+                mobileToggle.innerText = '☰';
+                document.getElementById('mobileHomeDropdown').classList.remove('active');
+            }
+            if (!event.target.closest('#homeDropdown')) {
+                document.getElementById('homeDropdown').classList.remove('active');
+            }
+        };
 
-// 🔥 SCROLL ANIMATIONS
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('animate');
-  });
-}, { threshold: 0.1 });
+        // 🔥 SCROLL ANIMATIONS
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('animate');
+            });
+        }, { threshold: 0.1 });
 
-document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .section-stagger').forEach(el => observer.observe(el));
-</script>
-
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .section-stagger').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

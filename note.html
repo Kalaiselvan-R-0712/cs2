@@ -1,362 +1,242 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Stackly — Cyber Security Agency</title>
-<meta name="description" content="Stackly — Cyber Security Agency." />
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stackly — Cyber Security Agency | Home 2</title>
+    <meta name="description" content="Stackly — Cyber Security Agency" />
 
-<style>
-:root {
-  --gold-1: #d4af37;
-  --gold-2: #b88b25;
-  --accent: #d4a657;
-  --ivory: #f8f6f2;
-  --ivory-2: #f3efe9;
-  --text-dark: #111827;
-  --muted: #6b7280;
-}
+    <script src="https://cdn.tailwindcss.com"></script>
 
-/* Logo Box */
-.logo-box {
-  display: flex;
-  align-items: center;
-  min-height: 64px;
-  min-width: 0;
-}
-.logo-img-rect {
-  height: 54px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  background: transparent;
-  padding: 2px 6px;
-  border-radius: 14px;
-  box-shadow: 0 1px 12px rgba(44,32,76,0.09);
-  transition: box-shadow .2s;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-/* Header */
-header.site-header {
-  backdrop-filter: blur(8px);
-  background: rgba(255,255,255,0.88);
-  border-bottom: 1px solid rgba(0,0,0,0.04);
-  transition: background 0.25s, border 0.2s;
-}
+    <style>
+        :root { --gold: #d4af37; --accent: #d4a657; }
 
-/* Buttons & Inputs */
-.nav-btn {
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.btn-ghost {
-  border: 1px solid rgba(0,0,0,0.10);
-  background: transparent;
-  color: #23262e;
-}
-.login-btn {
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  background: transparent;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-weight: 600;
-}
-.register-btn {
-  background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
-  color: #18181b;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-weight: 700;
-  box-shadow: 0 6px 20px rgba(212,175,55,0.13);
-}
+        /* 🔥 HEADER - BULLETPROOF VISIBLE FOREVER */
+        #site-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 999999 !important;
+            background: rgba(11,10,18, 0.98) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+            border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
+        }
 
-/* Text colors */
-body, p, h1, h2, h3, h4, h5, h6, span, label, li, a, button {
-  color: #23262e !important;
-}
-.text-muted, .text-gray-400, .text-gray-300, .text-gray-500 {
-  color: #75787d !important;
-}
-a:hover {
-  color: var(--accent) !important;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0a12;
+            overflow-x: hidden;
+            padding-top: 90px !important;
+        }
 
-/* Body styling */
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--ivory);
-  color: var(--text-dark);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background 0.2s, color 0.2s;
-}
+        /* 🔥 HERO VIDEO STYLES */
+        .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        .hero-content-bg { background: rgba(0, 0, 0, 0.5); position: relative; z-index: 10; }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  header.site-header { padding-left: 11px; padding-right: 11px; }
-  .nav-links { display: none !important; }
-  #mobile-menu { display: none; }
-}
-@media (max-width: 640px) {
-  .logo-img-rect { height: 40px !important; }
-  .mobile-cta { display: inline-flex !important; }
-}
+        /* 🔥 PERFECT DROPDOWN - REDIRECTION 100% FIXED */
+        .home-dropdown { position: relative; }
+        .home-dropdown-content {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            min-width: 180px; background: rgba(11,10,18, 0.98);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            opacity: 0; visibility: hidden;
+            transform: translateX(-50%) translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 10000 !important; margin-top: 8px;
+        }
+        .home-dropdown.active .home-dropdown-content {
+            opacity: 1 !important; visibility: visible !important;
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .home-dropdown-content a {
+            display: block !important; padding: 12px 20px !important; color: white !important;
+            text-decoration: none !important; font-weight: 500 !important; border-radius: 12px !important;
+            transition: all 0.2s ease !important; pointer-events: auto !important;
+        }
+        .home-dropdown-content a:hover { background: rgba(6, 182, 212, 0.2) !important; color: #06b6d4 !important; transform: translateX(4px) !important; }
 
-/* Mobile hero fixes */
-#hero .hero-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-@media(min-width: 1024px) {
-  #hero .hero-inner {
-    flex-direction: row;
-    text-align: left;
-    align-items: center;
-  }
-}
+        /* 🔥 MOBILE MENU */
+        @media (max-width: 1024px) {
+            #mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0b0a12 !important; z-index: 9999; border-top: 1px solid rgba(255,255,255,0.1); max-height: 85vh; overflow-y: auto; }
+            #mobile-menu.active { display: block !important; }
+            #mobile-menu a, #mobile-menu button { display: block !important; width: 100% !important; max-width: 300px; margin: 10px auto !important; text-align: center; padding: 12px !important; border-radius: 12px !important; color: white !important; font-size: 1rem !important; }
+            .home-dropdown-mobile { width: 100%; max-width: 300px; }
+            .mobile-home-dropdown-content { opacity: 0; visibility: hidden; max-height: 0; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); margin-top: 8px; background: rgba(11,10,18, 0.98); border-radius: 12px; }
+            .home-dropdown-mobile.active .mobile-home-dropdown-content { opacity: 1 !important; visibility: visible !important; max-height: 120px; }
+            .mobile-home-dropdown-content a { display: block !important; padding: 12px 20px !important; margin-left: 16px !important; color: white !important; border-left: 4px solid #06b6d4; background: rgba(255,255,255,0.05); }
+            .mobile-reg-btn { background: linear-gradient(45deg, #06b6d4, #3b82f6) !important; font-weight: 800 !important; }
+        }
 
-/* Mobile menu styling */
-#mobile-menu {
-  background: white;
-  border-top: 1px solid #ddd;
-  padding: 10px 0;
-  text-align: center;
-}
-#mobile-menu a {
-  display: block;
-  padding: 10px 0;
-}
+        /* 🔥 ANIMATIONS */
+        .fade-in-up { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
+        .fade-in-up.animate { opacity: 1; transform: translateY(0); }
+        .fade-in-left { opacity: 0; transform: translateX(-60px); transition: all 1s ease; }
+        .fade-in-left.animate { opacity: 1; transform: translateX(0); }
+        .fade-in-right { opacity: 0; transform: translateX(60px); transition: all 1s ease; }
+        .fade-in-right.animate { opacity: 1; transform: translateX(0); }
+        .section-stagger { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .section-stagger.animate { opacity: 1; transform: translateY(0); }
+        
+        .hero-glow { animation: heroGlow 3s ease-in-out infinite alternate; background: linear-gradient(45deg, #06b6d4, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes heroGlow { 0% { text-shadow: 0 0 20px rgba(6,182,212,0.4); } 100% { text-shadow: 0 0 40px rgba(6,182,212,0.7); } }
 
-/* Footer */
-footer {
-  color: #2d2f34 !important;
-  background: transparent !important;
-}
-footer a {
-  color: #3b3e45 !important;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-footer a:hover {
-  color: var(--accent) !important;
-}
-/* Dropdown */
-#home-dropdown-menu a {
-  cursor: pointer;
-}
-#home-dropdown-menu {
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
+        .btn-mega { background: linear-gradient(45deg, #06b6d4, #0891b2, #0ea5e9); background-size: 300% 300%; animation: gradientShift 4s ease infinite; transition: all 0.3s; }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .btn-mega:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(6,182,212,0.4); }
 
-  /* Center mobile menu */
-  #mobile-menu {
-    background: white;
-    border-top: 1px solid #ddd;
-    padding: 10px 0;
-    display: none;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  #mobile-menu.show {
-    display: flex;
-  }
-  #mobile-menu a {
-    display: block;
-    padding: 10px 0;
-  }
-
-  #mobile-menu {
-  background: white;
-  border-top: 1px solid #ddd;
-  padding: 10px 0;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-}
-#mobile-menu.hidden { display: none; }
-#mobile-menu.show { display: flex; }
-
-
-@media (max-width: 640px) {
-  #hero .hero-inner span {
-    color: #d4af37 !important; /* gold */
-  }
-}
-
-</style>
+        .card { background: linear-gradient(145deg, #0b0a12, #1a1822); border: 1px solid rgba(255,255,255,0.1); transition: all 0.5s ease; }
+        .card:hover { transform: translateY(-15px); border-color: #06b6d4; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); }
+        .sicon { width: 44px; height: 44px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 12px; transition: 0.3s; }
+        .sicon:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+        .logo-no-rotate:hover { transform: scale(1.05); transition: 0.3s; }
+    </style>
 </head>
-<body>
 
-<!-- HEADER -->
-<header class="site-header fixed top-0 left-0 w-full z-50">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-    <a href="homepage2.html" class="logo-box">
-      <img src="assets/images/logo/stackly_logo.webp" alt="Stackly logo" class="logo-img-rect" />
+<body>
+<!-- ================= HEADER ✅ ================= -->
+<header id="site-header" class="text-white">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <a href="homepage2.html" class="flex items-center fade-in-left">
+      <img src="assets/images/logo/stackly_logo.webp" class="h-12 logo-no-rotate" alt="Stackly">
     </a>
-    <!-- NAV LINKS -->
-    <nav class="items-center gap-6 hidden lg:flex nav-links">
-      <!-- Home Dropdown -->
-      <div class="relative" id="home-dropdown">
-        <button id="home-dropdown-button" class="text-gray-700 hover:text-[var(--accent)] font-medium inline-flex items-center gap-1 focus:outline-none" aria-expanded="false" aria-haspopup="true" type="button">
+
+    <nav class="hidden lg:flex items-center gap-6 font-medium fade-in-right">
+      <!-- 🔥 HOME DROPDOWN - PERFECTLY FIXED -->
+      <div class="home-dropdown relative" id="homeDropdown">
+        <button class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all cursor-pointer font-medium border-none bg-transparent text-white w-full text-left" onclick="toggleHomeDropdown(event)">
           Home
-          <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
         </button>
-        <div id="home-dropdown-menu" class="absolute hidden bg-white rounded-md shadow-lg py-2 mt-2 w-36 z-50">
-          <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-yellow-500 hover:text-black">Home 1</a>
+        <div class="home-dropdown-content">
+          <a href="index.html">⚡ Home 1</a>
         </div>
       </div>
-      <a href="about2.html" class="text-gray-700 hover:text-[var(--accent)]">About</a>
-      <a href="services2.html" class="text-gray-700 hover:text-[var(--accent)]">Services</a>
-      <a href="packages2.html" class="text-gray-700 hover:text-[var(--accent)]">Packages</a>
-      <a href="contact2.html" class="text-gray-700 hover:text-[var(--accent)]">Contact</a>
-      <a href="dashboard.html" class="text-gray-700 hover:text-[var(--accent)]">Dashboard</a>
-      <a href="login.html" class="login-btn ml-2 hover:shadow-md">Login</a>
-      <a href="register.html" class="register-btn ml-3">Register</a>
+      
+      <a href="about2.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">About</a>
+      <a href="services2.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">Services</a>
+      <a href="packages2.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">Packages</a>
+      <a href="contact2.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">Contact</a>
+      <a href="dashboard.html" class="py-2 px-3 rounded-lg hover:bg-white/10 transition-all">Dashboard</a>
+      <a href="login.html" class="px-6 py-3 border border-white/30 rounded-full glass hover:bg-white/20 transition-all duration-300">Login</a>
+      <a href="register.html" class="px-8 py-3 rounded-2xl font-bold text-black btn-mega text-lg shadow-2xl">Register Now</a>
     </nav>
-    <div class="flex items-center gap-3">
-      <!-- Hamburger button -->
-      <button id="mobile-toggle" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-2 text-2xl" aria-label="Open menu">☰</button>
-    </div>
-  </div>
-<div id="mobile-menu" class="hidden lg:hidden flex flex-col items-center space-y-3 text-sm px-6 py-4 text-center">
-  <div class="w-full max-w-xs mx-auto">
-    <button id="mobile-home-dropdown-btn" aria-expanded="false" class="w-full text-center flex justify-center items-center px-4 py-2 border rounded-md relative">
-      Home
-      <svg class="absolute right-4 w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-      </svg>
-    </button>
-    <div id="mobile-home-dropdown-menu" class="hidden mt-2 space-y-2 px-4">
-      <a href="index.html" class="block rounded-md px-3 py-2 hover:bg-yellow-500 hover:text-black">Home 1</a>
-    </div>
+
+    <button id="mobile-toggle" class="lg:hidden text-3xl text-white hover:scale-125 transition-all">☰</button>
   </div>
 
-  <a href="about2.html" class="block w-full max-w-xs px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-black mx-auto">About</a>
-  <a href="services2.html" class="block w-full max-w-xs px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-black mx-auto">Services</a>
-  <a href="packages2.html" class="block w-full max-w-xs px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-black mx-auto">Packages</a>
-  <a href="contact2.html" class="block w-full max-w-xs px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-black mx-auto">Contact</a>
-  <a href="dashboard.html" class="block w-full max-w-xs px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-black mx-auto">Dashboard</a>
-  <a href="login.html" class="block w-full max-w-xs mt-2 py-2 border rounded-full text-center login-btn mx-auto">Login</a>
-  <a href="register.html" class="block w-full max-w-xs py-2 rounded-full text-center register-btn mx-auto">Register</a>
-</div>
-
+  <!-- 🔥 MOBILE MENU WITH HOME DROPDOWN ✅ -->
+  <div id="mobile-menu" class="lg:hidden bg-black/98 backdrop-blur-xl text-white px-6 py-12 border-t border-white/20">
+    <div class="flex flex-col items-center py-10 px-6">
+      <!-- 🔥 MOBILE HOME DROPDOWN -->
+      <div class="home-dropdown-mobile mb-6" id="mobileHomeDropdown">
+        <a href="#" class="block hover:text-cyan-400 text-lg font-medium py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all flex items-center justify-center w-full max-w-[280px]" onclick="toggleMobileHomeDropdown(event)">
+          🏠 Home
+          <svg class="w-5 h-5 ml-2 transition-transform duration-300" id="mobileHomeArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </a>
+        <div class="mobile-home-dropdown-content" id="mobileHomeContent">
+          <a href="index.html">⚡ Home 1</a>
+        </div>
+      </div>
+      
+      <!-- Main Nav Links -->
+      <a href="about2.html" class="hover:text-cyan-400 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all w-full max-w-[280px]">👥 About</a>
+      <a href="services2.html" class="hover:text-cyan-400 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all w-full max-w-[280px]">🛠 Services</a>
+      <a href="packages2.html" class="hover:text-cyan-400 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all w-full max-w-[280px]">📦 Packages</a>
+      <a href="contact2.html" class="hover:text-cyan-400 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all w-full max-w-[280px]">📞 Contact</a>
+      <a href="dashboard.html" class="hover:text-cyan-400 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all w-full max-w-[280px] mb-6">📊 Dashboard</a>
+      
+      <!-- Divider -->
+      <div class="w-full max-w-[260px] h-px bg-white/10 my-6"></div>
+      
+      <!-- Buttons -->
+      <a href="login.html" class="glass py-3 px-6 rounded-2xl w-full max-w-[280px] text-center mb-4">🔐 Login</a>
+      <a href="register.html" class="mobile-reg-btn py-4 px-8 rounded-2xl w-full max-w-[280px] text-center">🚀 Register Now</a>
+    </div>
+  </div>
 </header>
 
-<!-- ========================================================= -->
-<!-- ******************* CYBER SECURITY HERO ***************** -->
-<!-- ========================================================= -->
-<section id="hero" class="pt-28 flex items-center justify-center text-center bg-[url('https://images.unsplash.com/photo-1570475735025-6cd1cd5c779d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center relative">
-  <div class="absolute inset-0 bg-black/50"></div>
-  <div class="hero-inner max-w-6xl px-6 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
-      <div class="text-center lg:text-left text-white">
-        <span class="text-sm uppercase tracking-widest text-yellow-400 font-semibold">Security • Protection • Defense</span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mt-4">
-          Protecting Your Business with <span class="text-yellow-400">Cyber Security Excellence</span>
-        </h1>
-        <p class="mt-6 text-lg max-w-xl mx-auto lg:mx-0">
-          Stackly strengthens your digital infrastructure with enterprise-level security, threat intelligence, defense systems.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
-          <a href="contact2.html" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-yellow-500 text-black font-semibold shadow-lg hover:scale-[1.02] transition">Secure Your Business</a>
-          <a href="services2.html" class="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition">Our Solutions</a>
+    <section class="relative min-h-screen overflow-hidden flex items-center">
+        <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+            <source src="assets/videos/bg_video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content-bg w-full min-h-screen flex items-center">
+            <div class="max-w-7xl mx-auto px-8 w-full">
+                <div class="max-w-3xl fade-in-up animate">
+                    <span class="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-2xl text-lg font-bold mb-8 shadow-2xl text-white">🔐 VIDEO POWERED PROTECTION</span>
+                    <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight hero-glow text-white">FUTURE-PROOF<br><span>CYBER</span> DEFENSE</h1>
+                    <p class="text-xl text-white/90 mb-12 max-w-2xl leading-relaxed">AI-powered security • Real-time threat hunting • 24/7 Enterprise SOC monitoring.</p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="contact2.html" class="px-10 py-5 btn-mega rounded-2xl text-xl font-bold text-black text-center">Secure Now →</a>
+                        <a href="contact2.html" class="px-10 py-5 glass rounded-2xl text-xl font-bold text-white text-center">Free Security Audit</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="relative rounded-2xl overflow-hidden shadow-2xl card p-1">
-        <img src="https://plus.unsplash.com/premium_vector-1726821169209-a1ccbde625ca?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-             class="w-full h-96 object-cover rounded-lg" alt="Cyber Security Illustration"/>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+            <div class="section-stagger animate">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="rounded-3xl shadow-2xl h-[450px] w-full object-cover border-4 border-gray-100" />
+            </div>
+            <div>
+                <span class="inline-block px-6 py-2 bg-cyan-100 text-cyan-600 rounded-full font-bold mb-6">🛡️ ABOUT STACKLY</span>
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight">We Secure Your <br><span class="text-cyan-500">Digital Future</span></h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">Enterprise-grade protection powered by cutting-edge AI and zero-trust architecture. We've protected over 500+ enterprises globally.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-6 bg-gray-50 border border-gray-200 rounded-2xl">
+                        <div class="text-3xl mb-2">⚡</div>
+                        <h4 class="font-bold text-gray-900">Zero Latency</h4>
+                    </div>
+                    <div class="p-6 bg-gray-50 border border-gray-200 rounded-2xl">
+                        <div class="text-3xl mb-2">🎯</div>
+                        <h4 class="font-bold text-gray-900">100% Accuracy</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="py-24 bg-[#0b0a12] text-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black hero-glow mb-4">ENTERPRISE SECURITY</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">🔒</div>
+                    <h3 class="text-xl font-bold mb-4">Pen-Testing</h3>
+                    <p class="text-gray-400">Advanced vulnerability assessment.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">📊</div>
+                    <h3 class="text-xl font-bold mb-4">SOC 24/7</h3>
+                    <p class="text-gray-400">Continuous threat detection.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">☁️</div>
+                    <h3 class="text-xl font-bold mb-4">Cloud Security</h3>
+                    <p class="text-gray-400">Multi-cloud protection.</p>
+                </div>
+                <div class="card p-10 rounded-3xl text-center section-stagger animate">
+                    <div class="text-4xl mb-6">🚨</div>
+                    <h3 class="text-xl font-bold mb-4">Incident Response</h3>
+                    <p class="text-gray-400">Rapid breach containment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- SERVICES / SOLUTIONS -->
-<section class="py-20 bg-[#f8f6f2]">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Our Cyber Security Solutions</h2>
-    <p class="text-gray-600 max-w-3xl mx-auto text-center mb-12">
-      Strong defense systems engineered to protect businesses of all sizes.
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-lg font-semibold mb-2">Penetration Testing</h3>
-        <p class="text-gray-500 text-sm">Identify vulnerabilities before hackers do.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-lg font-semibold mb-2">SOC-as-a-Service</h3>
-        <p class="text-gray-500 text-sm">A complete Security Operations Center managing threats 24/7.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-lg font-semibold mb-2">Cyber Risk Assessment</h3>
-        <p class="text-gray-500 text-sm">Comprehensive risk audits for your organization.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-lg font-semibold mb-2">Endpoint Protection</h3>
-        <p class="text-gray-500 text-sm">Defense systems for laptops, servers, mobiles, IoT.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-lg font-semibold mb-2">Cloud Security</h3>
-        <p class="text-gray-500 text-sm">Secure your AWS, Azure, GCP cloud infrastructure.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-lg font-semibold mb-2">Ransomware Protection</h3>
-        <p class="text-gray-500 text-sm">Prevent attacks and secure backups with zero-trust models.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- WHY CHOOSE US - CYBER SECURITY -->
-<section class="py-20 bg-[#f3efe9]">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Stackly Cyber Security?</h2>
-    <p class="text-gray-600 max-w-3xl mx-auto mb-12">
-      We offer advanced threat protection, 24/7 monitoring, and enterprise-grade solutions to safeguard your assets.
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="card p-6">
-        <img src="https://plus.unsplash.com/premium_vector-1760339183163-d0ca066f6dab?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg mb-4">
-        <h3 class="font-semibold mb-2 text-lg">24/7 Threat Monitoring</h3>
-        <p class="text-gray-500 text-sm">Real-time monitoring to detect and neutralize cyber attacks instantly.</p>
-      </div>
-
-      <div class="card p-6">
-        <img src="https://plus.unsplash.com/premium_vector-1726843787872-3d328d3e0bb3?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg mb-4">
-        <h3 class="font-semibold mb-2 text-lg">Advanced Firewall Systems</h3>
-        <p class="text-gray-500 text-sm">AI-powered firewalls that block unauthorized access automatically.</p>
-      </div>
-
-      <div class="card p-6">
-        <img src="https://plus.unsplash.com/premium_vector-1726764467791-bfbc04bc9dab?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg mb-4">
-        <h3 class="font-semibold mb-2 text-lg">Data Encryption</h3>
-        <p class="text-gray-500 text-sm">Military-grade encryption to protect your sensitive information.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- ================= PERFECT FOOTER ✅ ================= -->
 <footer class="bg-[#060507] dark:bg-[#050406] text-gray-300 pt-10 pb-8">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
     <div>
@@ -368,11 +248,11 @@ footer a:hover {
     <div>
       <h4 class="font-semibold text-white mb-2">Quick Links</h4>
       <ul class="space-y-2 text-sm text-gray-300">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="packages.html">Packages</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="homepage2.html" class="hover:text-cyan-400 transition-colors">Home</a></li>
+        <li><a href="about2.html" class="hover:text-cyan-400 transition-colors">About</a></li>
+        <li><a href="services2.html" class="hover:text-cyan-400 transition-colors">Services</a></li>
+        <li><a href="packages2.html" class="hover:text-cyan-400 transition-colors">Packages</a></li>
+        <li><a href="contact2.html" class="hover:text-cyan-400 transition-colors">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -381,127 +261,86 @@ footer a:hover {
       <p class="text-sm text-gray-400 mt-1">📞 +91 98765 43210</p>
       <p class="text-sm text-gray-400 mt-1">✉️ hello@stackly.com</p>
     </div>
-<div>
-  <h4 class="font-semibold text-white mb-2">Follow us</h4>
-  <div class="flex items-center gap-3 mb-3">
-
-    <a href="404.html" class="sicon" title="Email" aria-label="Email">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#EA4335" width="24" height="24">
-        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/>
-      </svg>
-    </a>
-
-    <a href="404.html" class="sicon" title="LinkedIn" aria-label="LinkedIn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5" width="24" height="24">
-        <path d="M4.98 3.5C4.98 4.88 3.84 6 2.5 6S0 4.88 0 3.5 1.14 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8H4.5v14H.5V8zM7.5 8h4v2h.1c.5-1 2-2 4-2 4.4 0 5.2 2.9 5.2 6.7V22H17v-6.8c0-1.7 0-3.9-2.5-3.9-2.5 0-2.8 1.9-2.8 3.8V22H7.5V8z"/>
-      </svg>
-    </a>
-
-    <a href="404.html" class="sicon" title="Twitter" aria-label="Twitter">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1DA1F2" width="24" height="24">
-        <path d="M23 3a10.9 10.9 0 0 1-3.14.85 4.48 4.48 0 0 0 1.94-2.48 9.12 9.12 0 0 1-2.89 1.1 4.52 4.52 0 0 0-7.7 4.12A12.79 12.79 0 0 1 1.67 2.15 4.52 4.52 0 0 0 3.13 9a4.49 4.49 0 0 1-2.04-.55v.06a4.52 4.52 0 0 0 3.63 4.41 4.51 4.51 0 0 1-2.03.07 4.53 4.53 0 0 0 4.22 3.13A9.07 9.07 0 0 1 1.11 18.1 12.82 12.82 0 0 0 7 20c8.3 0 12.85-6.87 12.85-12.84 0-.2 0-.42-.01-.63A9.18 9.18 0 0 0 23 3z"/>
-      </svg>
-    </a>
-
-    <a href="404.html" class="sicon" title="Facebook" aria-label="Facebook">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2" width="24" height="24">
-        <path d="M22.675 0H1.325C.594 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24h11.483v-9.294H9.692v-3.622h3.116V8.414c0-3.1 1.896-4.788 4.66-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.92.001c-1.504 0-1.796.715-1.796 1.765v2.315h3.59l-.467 3.621h-3.123V24h6.461C23.406 24 24 23.406 24 22.676V1.325C24 .593 23.406 0 22.675 0z"/>
-      </svg>
-    </a>
-
-            <a href="404.html" class="sicon" title="Instagram" aria-label="Instagram">
+    <div>
+      <h4 class="font-semibold text-white mb-2">Follow us</h4>
+      <div class="flex items-center gap-3 mb-3">
+        <a href="404.html" class="sicon" title="Email" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#EA4335" width="24" height="24">
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/>
+          </svg>
+        </a>
+        <a href="404.html" class="sicon" title="LinkedIn" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5" width="24" height="24">
+            <path d="M4.98 3.5C4.98 4.88 3.84 6 2.5 6S0 4.88 0 3.5 1.14 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8H4.5v14H.5V8zM7.5 8h4v2h.1c.5-1 2-2 4-2 4.4 0 5.2 2.9 5.2 6.7V22H17v-6.8c0-1.7 0-3.9-2.5-3.9-2.5 0-2.8 1.9-2.8 3.8V22H7.5V8z"/>
+          </svg>
+        </a>
+        <a href="404.html" class="sicon" title="Twitter" aria-label="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1DA1F2" width="24" height="24">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14.85 4.48 4.48 0 0 0 1.94-2.48 9.12 9.12 0 0 1-2.89 1.1 4.52 4.52 0 0 0-7.7 4.12A12.79 12.79 0 0 1 1.67 2.15 4.52 4.52 0 0 0 3.13 9a4.49 4.49 0 0 1-2.04-.55v.06a4.52 4.52 0 0 0 3.63 4.41 4.51 4.51 0 0 1-2.03.07 4.53 4.53 0 0 0 4.22 3.13A9.07 9.07 0 0 1 1.11 18.1 12.82 12.82 0 0 0 7 20c8.3 0 12.85-6.87 12.85-12.84 0-.2 0-.42-.01-.63A9.18 9.18 0 0 0 23 3z"/>
+          </svg>
+        </a>
+        <a href="404.html" class="sicon" title="Facebook" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2" width="24" height="24">
+            <path d="M22.675 0H1.325C.594 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24h11.483v-9.294H9.692v-3.622h3.116V8.414c0-3.1 1.896-4.788 4.66-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.92.001c-1.504 0-1.796.715-1.796 1.765v2.315h3.59l-.467 3.621h-3.123V24h6.461C23.406 24 24 23.406 24 22.676V1.325C24 .593 23.406 0 22.675 0z"/>
+          </svg>
+        </a>
+        <a href="404.html" class="sicon" title="Instagram" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#E1306C" width="24" height="24">
             <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 3.5a1 1 0 110 2 1 1 0 010-2zm-5 1.5a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
           </svg>
         </a>
+      </div>
+    </div>
   </div>
-</div>
-  </div>
-  <div class="max-w-7xl mx-auto px-6 text-center text-xs text-gray-500 mt-8">© 2025 Stackly. All rights reserved.</div>
+  <div class="max-w-7xl mx-auto px-6 text-center text-xs text-gray-500 mt-8 border-t border-white/10 pt-6">© 2025 Stackly. All rights reserved.</div>
 </footer>
 
-<script>
-const mobileToggle = document.getElementById('mobile-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-const homeDropdownBtn = document.getElementById('home-dropdown-button');
-const homeDropdownMenu = document.getElementById('home-dropdown-menu');
+    <script>
+        // 🔥 MOBILE TOGGLE
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileToggle.onclick = function() {
+            mobileMenu.classList.toggle('active');
+            this.innerText = mobileMenu.classList.contains('active') ? '✕' : '☰';
+        };
 
-mobileToggle.addEventListener('click', () => {
-  const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-  mobileToggle.setAttribute('aria-expanded', String(!expanded));
-  if (expanded) {
-    mobileMenu.classList.add('hidden');
-  } else {
-    mobileMenu.classList.remove('hidden');
-  }
-});
+        // 🔥 DESKTOP HOME DROPDOWN
+        function toggleHomeDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById('homeDropdown').classList.toggle('active');
+        }
 
-homeDropdownBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  homeDropdownMenu.classList.toggle('hidden');
-  const expanded = homeDropdownBtn.getAttribute('aria-expanded') === 'true';
-  homeDropdownBtn.setAttribute('aria-expanded', String(!expanded));
-});
+        // 🔥 MOBILE HOME DROPDOWN
+        function toggleMobileHomeDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const dropdown = document.getElementById('mobileHomeDropdown');
+            dropdown.classList.toggle('active');
+            const arrow = document.getElementById('mobileHomeArrow');
+            arrow.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
 
-document.addEventListener('click', (e) => {
-  if (!homeDropdownBtn.contains(e.target) && !homeDropdownMenu.contains(e.target)) {
-    homeDropdownMenu.classList.add('hidden');
-    homeDropdownBtn.setAttribute('aria-expanded', 'false');
-  }
-});
-</script>
-<script>
-const mobileToggle = document.getElementById('mobile-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
+        // 🔥 CLOSE ON OUTSIDE CLICK
+        window.onclick = function(event) {
+            if (!event.target.matches('#mobile-toggle') && !event.target.closest('#mobile-menu')) {
+                mobileMenu.classList.remove('active');
+                mobileToggle.innerText = '☰';
+                document.getElementById('mobileHomeDropdown').classList.remove('active');
+            }
+            if (!event.target.closest('#homeDropdown')) {
+                document.getElementById('homeDropdown').classList.remove('active');
+            }
+        };
 
-mobileToggle.addEventListener('click', () => {
-  const isVisible = mobileMenu.classList.toggle('show');
-  mobileToggle.setAttribute('aria-expanded', isVisible);
-});
-</script>
+        // 🔥 SCROLL ANIMATIONS
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('animate');
+            });
+        }, { threshold: 0.1 });
 
-<script>
-document.getElementById("mobile-toggle").addEventListener("click", () => {
-  const menu = document.getElementById("mobile-menu");
-  const btn = document.getElementById("mobile-toggle");
-
-  menu.classList.toggle("hidden");
-  menu.classList.toggle("show");
-
-  const expanded = btn.getAttribute("aria-expanded") === "true";
-  btn.setAttribute("aria-expanded", !expanded);
-});
-</script>
-
-<script>const mobileHomeDropdownBtn = document.getElementById('mobile-home-dropdown-btn');
-const mobileHomeDropdownMenu = document.getElementById('mobile-home-dropdown-menu');
-
-mobileHomeDropdownBtn.addEventListener('click', () => {
-  const expanded = mobileHomeDropdownBtn.getAttribute('aria-expanded') === 'true';
-  mobileHomeDropdownBtn.setAttribute('aria-expanded', String(!expanded));
-  mobileHomeDropdownMenu.classList.toggle('hidden');
-  mobileHomeDropdownBtn.querySelector('svg').classList.toggle('rotate-180');
-});
-</script>
-
-<script>
-    function handleContact(event) {
-  event.preventDefault();
-  // Add form validation or send logic here if needed
-
-  window.location.href = "404.html"; // redirect after submission
-}
-</script>
-
-<script>const mobileHomeDropdownBtn = document.getElementById('mobile-home-dropdown-btn');
-const mobileHomeDropdownMenu = document.getElementById('mobile-home-dropdown-menu');
-
-mobileHomeDropdownBtn.addEventListener('click', () => {
-  const expanded = mobileHomeDropdownBtn.getAttribute('aria-expanded') === 'true';
-  mobileHomeDropdownBtn.setAttribute('aria-expanded', String(!expanded));
-  mobileHomeDropdownMenu.classList.toggle('hidden');
-  mobileHomeDropdownBtn.querySelector('svg').classList.toggle('rotate-180');
-});
-</script>
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .section-stagger').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
